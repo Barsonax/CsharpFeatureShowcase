@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Csharp72")]
+[assembly: AssemblyTitle("InferredTupleElements")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Csharp72")]
+[assembly: AssemblyProduct("InferredTupleElements")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a58b2a3b-4912-4c74-ac8f-235103eceb73")]
+[assembly: Guid("e0f6b326-e0a8-4378-a1f0-7ff6f213fd69")]
 
 // Version information for an assembly consists of the following four values:
 //

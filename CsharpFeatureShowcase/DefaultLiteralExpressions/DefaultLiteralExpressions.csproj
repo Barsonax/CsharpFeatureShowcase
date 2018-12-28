@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C217EA97-7044-4AD7-8C2D-1659FE23549F}</ProjectGuid>
+    <ProjectGuid>{0994C0BD-83CA-4AF8-A30C-C1786E417381}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Csharp71</RootNamespace>
-    <AssemblyName>Csharp71</AssemblyName>
+    <RootNamespace>DefaultLiteralExpressions</RootNamespace>
+    <AssemblyName>DefaultLiteralExpressions</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
