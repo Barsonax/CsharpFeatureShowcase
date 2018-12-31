@@ -3,12 +3,13 @@ using System.Runtime.InteropServices;
 
 namespace MemoryAndSpan
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
+            SafeStackalloc(8);
             ReintepretCast();
-
+            Console.ReadKey();
         }
 
         static void ReintepretCast()
@@ -25,7 +26,9 @@ namespace MemoryAndSpan
 
         static void SafeStackalloc(int len)
         {
-            Span<byte> bytes = stackalloc byte[len]; //Does not allocate anything on the heap!
+            //The following line of code does not allocate anything on the heap!
+            //Be careful of stackoverflow exceptions though if the length is too large.
+            Span<byte> bytes = stackalloc byte[len];
         }
     }
 
