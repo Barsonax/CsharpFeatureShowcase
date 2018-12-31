@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{881704FF-76D4-4200-9BBE-0BF5EF3900F0}</ProjectGuid>
+    <ProjectGuid>{EBF62302-3AA0-4B66-B5F5-0B7027C27DAC}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Csharp80</RootNamespace>
-    <AssemblyName>Csharp80</AssemblyName>
+    <RootNamespace>TupleEquality</RootNamespace>
+    <AssemblyName>TupleEquality</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -22,9 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>8.0</LangVersion>
-    <WarningsAsErrors>
-    </WarningsAsErrors>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>

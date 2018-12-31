@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Csharp73")]
+[assembly: AssemblyTitle("MemoryAndSpan")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Csharp73")]
+[assembly: AssemblyProduct("MemoryAndSpan")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4ed0f737-fe13-4769-bbd0-f1afe664a50f")]
+[assembly: Guid("4c5ba11d-2ee6-4f5a-af29-bd5ba4c658e7")]
 
 // Version information for an assembly consists of the following four values:
 //
