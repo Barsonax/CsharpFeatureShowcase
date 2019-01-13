@@ -227,6 +227,9 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReinterpretBinaryDataBenchmark.cs" />
+    <Compile Include="ReinterpretTextBenchmark.cs" />
+    <Compile Include="RGBA.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
