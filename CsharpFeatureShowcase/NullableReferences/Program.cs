@@ -21,6 +21,11 @@ namespace NullableReferences
             {
                 NonNullableParameter(value); //No warning
             }
+
+            //Array consists of non nullable elements but will be initialized with nulls.
+            var array = new SomeClass[100];
+
+            array[0].Equals(null);
         }
 
         public static void NullableParameter(SomeClass? someclass) //Accepts a instance of SomeClass but the intent here its optional so it can be null
