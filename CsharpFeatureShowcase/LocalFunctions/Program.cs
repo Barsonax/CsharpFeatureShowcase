@@ -10,6 +10,10 @@ namespace LocalFunctions
     {
         static void Main(string[] args)
         {
+            var foo = new SomeEnumerable();
+            foo.AlphabetSubset('0', '2');
+            foo.AlphabetSubset2('0', '2');
+            foo.AlphabetSubset3('0', '2');
         }
     }
 
@@ -21,7 +25,7 @@ namespace LocalFunctions
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        public static IEnumerable<char> AlphabetSubset(char start, char end)
+        public IEnumerable<char> AlphabetSubset(char start, char end)
         {
             if (start < 'a' || start > 'z')
                 throw new ArgumentOutOfRangeException(paramName: nameof(start), message: "start must be a letter");
@@ -40,7 +44,7 @@ namespace LocalFunctions
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        public static IEnumerable<char> AlphabetSubset2(char start, char end)
+        public IEnumerable<char> AlphabetSubset2(char start, char end)
         {
             if (start < 'a' || start > 'z')
                 throw new ArgumentOutOfRangeException(paramName: nameof(start), message: "start must be a letter");
@@ -52,7 +56,7 @@ namespace LocalFunctions
             return alphabetSubsetImplementation(start, end);
         }
 
-        private static IEnumerable<char> alphabetSubsetImplementation(char start, char end)
+        private IEnumerable<char> alphabetSubsetImplementation(char start, char end)
         {
             for (var c = start; c < end; c++)
                 yield return c;
@@ -64,7 +68,7 @@ namespace LocalFunctions
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        public static IEnumerable<char> AlphabetSubset3(char start, char end)
+        public IEnumerable<char> AlphabetSubset3(char start, char end)
         {
             if (start < 'a' || start > 'z')
                 throw new ArgumentOutOfRangeException(paramName: nameof(start), message: "start must be a letter");

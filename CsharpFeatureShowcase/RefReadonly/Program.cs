@@ -34,13 +34,11 @@ namespace RefReadonly
             var immutableStruct = new ImmutableStruct();
             for (int i = 0; i < 100; i++)
             {
-                ref readonly var immutableReferenceToMutableStruct = ref ReturnImmutableReference(in immutableStruct);
-                immutableReferenceToMutableStruct.DoSomething();
+                ref readonly var immutableReferenceToImmutableStruct = ref ReturnImmutableReference(in immutableStruct);
+                immutableReferenceToImmutableStruct.DoSomething();
             }
 
-            //immutableReferenceToMutableStruct.Value = 5; //This won't compile due to ref readonly return even if Value is not readonly
-
-            //a ref readonly return is a reference which cannot be mutated               
+            //immutableReferenceToMutableStruct.Value = 5; //This won't compile due to ref readonly return even if Value is not readonly           
         }
 
         public ref readonly T ReturnImmutableReference<T>(in T input)
