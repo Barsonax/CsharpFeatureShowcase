@@ -8,6 +8,8 @@ namespace NullableReferences
 {
     class Program
     {
+        //Per file scope #nullable enable
+        //Project scope <NullableContextOptions>enable</NullableContextOptions>
         #nullable enable
         static void Main(string[] args)
         {
