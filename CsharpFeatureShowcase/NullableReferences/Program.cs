@@ -10,7 +10,6 @@ namespace NullableReferences
     {
         //Per file scope #nullable enable
         //Project scope <NullableContextOptions>enable</NullableContextOptions>
-        #nullable enable
         static void Main(string[] args)
         {
             NonNullableParameter(null); //Gives a warning because we are giving a null to a non nullable parameter
@@ -19,7 +18,7 @@ namespace NullableReferences
             SomeClass? value = null;
 
             NonNullableParameter(value); //Gives warning
-            if(value != null)
+            if (value != null)
             {
                 NonNullableParameter(value); //No warning
             }
