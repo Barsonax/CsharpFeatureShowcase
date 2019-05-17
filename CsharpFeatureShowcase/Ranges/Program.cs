@@ -7,9 +7,9 @@ namespace MemoryAndSpanNetCore
     {
         static void Main(string[] args)
         {
-            var someRange = 1..11;
-            var someText = "1234567890";
-            var substring = someText[1..^1];
+            Range someRange = 1..11;
+            Range someText = "1234567890";
+            Range substring = someText[1..^1];
             Console.WriteLine(substring);
             Console.ReadKey();
         }
