@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace MemoryAndSpan
 {
     [Config(typeof(CustomJob))]
-    [RPlotExporter]
     [MemoryDiagnoser]
     public class ReinterpretBinaryDataBenchmark
     {
