@@ -4,6 +4,7 @@ using System.IO;
 
 namespace MemoryAndSpan
 {
+    [Config(typeof(CustomJob))]
     [MemoryDiagnoser]
     public class ReinterpretTextBenchmark
     {

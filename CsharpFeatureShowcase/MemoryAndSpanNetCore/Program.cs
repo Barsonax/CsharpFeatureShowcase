@@ -1,16 +1,36 @@
-﻿using BenchmarkDotNet.Running;
-using MemoryAndSpan;
+﻿using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Environments;
+using BenchmarkDotNet.Horology;
+using BenchmarkDotNet.Jobs;
+using BenchmarkDotNet.Running;
 using System;
+using System.Runtime.InteropServices;
 
-namespace MemoryAndSpanNetCore
+namespace MemoryAndSpan
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //BenchmarkRunner.Run<ReinterpretBinaryDataBenchmark>();
-            BenchmarkRunner.Run<ReinterpretTextBenchmark>();
+            BenchmarkRunner.Run<ReinterpretBinaryDataBenchmark>();
+            //BenchmarkRunner.Run<ReinterpretTextBenchmark>();
             Console.ReadKey();
+        }
+    }
+
+    public class CustomJob : ManualConfig
+    {
+        public CustomJob()
+        {
+            Add(
+                Job.RyuJitX64
+                    .With(Runtime.Core)
+                    .WithIterationTime(TimeInterval.FromMilliseconds(250)));
+
+            Add(
+                Job.LegacyJitX64
+                    .With(Runtime.Clr)
+                    .WithIterationTime(TimeInterval.FromMilliseconds(250)));
         }
     }
 }

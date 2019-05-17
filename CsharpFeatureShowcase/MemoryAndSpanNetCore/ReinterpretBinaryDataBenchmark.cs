@@ -5,13 +5,19 @@ using System.Runtime.InteropServices;
 
 namespace MemoryAndSpan
 {
+    [Config(typeof(CustomJob))]
+    [RPlotExporter]
     [MemoryDiagnoser]
     public class ReinterpretBinaryDataBenchmark
     {
-        private readonly RGBA[] _colorArray;
-        public ReinterpretBinaryDataBenchmark()
+        [Params(1000, 10000, 100000, 1000000, 10000000)]
+        public int N;
+        private RGBA[] _colorArray;
+
+        [GlobalSetup]
+        public void Setup()
         {
-            _colorArray = new RGBA[100000];
+            _colorArray = new RGBA[N];
             var random = new Random(4);
             for (int i = 0; i < _colorArray.Length; i++)
             {
@@ -27,9 +33,15 @@ namespace MemoryAndSpan
         public void ReinterpretWritetoFile()
         {
             var bytes = MemoryMarshal.AsBytes(_colorArray.AsSpan());
+
             using (var fileStream = File.Create("datafile"))
             {
-                fileStream.Write(bytes.ToArray(), 0, bytes.Length); //.ToArray() can be removed in netcore 2.1. We still need it here due to a missing API.
+#if NET472
+                fileStream.Write(bytes.ToArray(), 0, bytes.Length); //'.ToArray(), 0, bytes.Length' can be removed in netcore 2.1. We still need it here due to a missing API.
+#elif NETCOREAPP2_1
+                fileStream.Write(bytes);
+#endif
+
             }
         }
 

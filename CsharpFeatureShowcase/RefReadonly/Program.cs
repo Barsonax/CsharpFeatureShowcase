@@ -23,9 +23,8 @@ namespace RefReadonly
             {
                 ref readonly var immutableReferenceToMutableStruct = ref ReturnImmutableReference(in mutableStruct);
                 immutableReferenceToMutableStruct.DoSomething();
+                //immutableReferenceToMutableStruct.Value2 = 5; //This won't compile due to ref readonly return even if Value is not readonly     
             }
-
-            //immutableReferenceToMutableStruct.Value = 5; //This won't compile due to ref readonly return even if Value is not readonly                  
         }
 
         [Benchmark]
@@ -36,9 +35,8 @@ namespace RefReadonly
             {
                 ref readonly var immutableReferenceToImmutableStruct = ref ReturnImmutableReference(in immutableStruct);
                 immutableReferenceToImmutableStruct.DoSomething();
+                //immutableReferenceToImmutableStruct.Value = 5; //This won't compile due to ref readonly return even if Value is not readonly    
             }
-
-            //immutableReferenceToMutableStruct.Value = 5; //This won't compile due to ref readonly return even if Value is not readonly           
         }
 
         public ref readonly T ReturnImmutableReference<T>(in T input)

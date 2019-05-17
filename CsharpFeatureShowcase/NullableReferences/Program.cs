@@ -9,7 +9,7 @@ namespace NullableReferences
     class Program
     {
         //Per file scope #nullable enable
-        //Project scope <NullableContextOptions>enable</NullableContextOptions>
+        //Project scope <NullableContextOptions>enable</NullableContextOptions> in csproj
         static void Main(string[] args)
         {
             NonNullableParameter(null); //Gives a warning because we are giving a null to a non nullable parameter
