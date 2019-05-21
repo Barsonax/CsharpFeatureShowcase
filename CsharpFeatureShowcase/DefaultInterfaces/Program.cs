@@ -13,6 +13,9 @@ namespace DefaultInterfaces
 
             IVehicle audi = new Audi();
             audi.DefaultMessage();
+
+            // Default interfaces enable the traits programming pattern? https://en.wikipedia.org/wiki/Trait_(computer_programming)
+            // For more info and examples on traits see also the rust programming language which uses traits instead of inheritance: https://doc.rust-lang.org/book/ch10-02-traits.html
         }
     }
 
