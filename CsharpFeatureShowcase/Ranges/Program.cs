@@ -7,10 +7,13 @@ namespace MemoryAndSpanNetCore
     {
         static void Main(string[] args)
         {
-            Range someRange = 1..11;
-            Range someText = "1234567890";
-            Range substring = someText[1..^1];
+            Range someRange = 1..^1;
+
+            string someText = "1234567890";
+            string substring = someText[someRange];
+            char lastChar = someText[^1];
             Console.WriteLine(substring);
+            Console.WriteLine(lastChar);
             Console.ReadKey();
         }
     }
