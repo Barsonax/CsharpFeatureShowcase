@@ -10,10 +10,24 @@ namespace LocalFunctions
     {
         static void Main(string[] args)
         {
+            Example1();
+
             var foo = new SomeEnumerable();
             foo.AlphabetSubset('0', '2');
-            foo.AlphabetSubset2('0', '2');
-            foo.AlphabetSubset3('0', '2');
+            foo.AlphabetSubsetOld('0', '2');
+            foo.AlphabetSubsetNew('0', '2');
+        }
+
+        public static void Example1()
+        {
+            var foo = 6;
+
+            Example1LocalFuction();
+
+            void Example1LocalFuction()
+            {
+                var foo2 = foo + 2;
+            }
         }
     }
 
@@ -39,12 +53,12 @@ namespace LocalFunctions
         }
 
         /// <summary>
-        /// Will validate the parameters immediately but the intent of <see cref="alphabetSubsetImplementation"/> is not entirely clear.
+        /// Will validate the parameters immediately but the intent of <see cref="alphabetSubsetImplementationOld"/> is not entirely clear.
         /// </summary>
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        public IEnumerable<char> AlphabetSubset2(char start, char end)
+        public IEnumerable<char> AlphabetSubsetOld(char start, char end)
         {
             if (start < 'a' || start > 'z')
                 throw new ArgumentOutOfRangeException(paramName: nameof(start), message: "start must be a letter");
@@ -53,22 +67,22 @@ namespace LocalFunctions
 
             if (end <= start)
                 throw new ArgumentException($"{nameof(end)} must be greater than {nameof(start)}");
-            return alphabetSubsetImplementation(start, end);
+            return alphabetSubsetImplementationOld(start, end);
         }
 
-        private IEnumerable<char> alphabetSubsetImplementation(char start, char end)
+        private IEnumerable<char> alphabetSubsetImplementationOld(char start, char end)
         {
             for (var c = start; c < end; c++)
                 yield return c;
         }
 
         /// <summary>
-        /// Will validate the parameters immediately and its clear <see cref="alphabetSubsetImplementation"/> is only used inside this method.
+        /// Will validate the parameters immediately and its clear alphabetSubsetImplementation is only used inside this method.
         /// </summary>
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        public IEnumerable<char> AlphabetSubset3(char start, char end)
+        public IEnumerable<char> AlphabetSubsetNew(char start, char end)
         {
             if (start < 'a' || start > 'z')
                 throw new ArgumentOutOfRangeException(paramName: nameof(start), message: "start must be a letter");

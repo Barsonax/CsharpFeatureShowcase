@@ -7,12 +7,14 @@ namespace MemoryAndSpanNetCore
     {
         static void Main(string[] args)
         {
-            Range someRange = 1..^1;
+            Range someRange = 1..^1; //Skip the first and the last element of a collection
 
-            string someText = "1234567890";
-            string substring = someText[someRange];
+            ReadOnlySpan<char> someText = "1234567890";
+            ReadOnlySpan<char> substring = someText[someRange]; 
+            Console.WriteLine(substring.ToString()); //Prints 23456789
+
             char lastChar = someText[^1];
-            Console.WriteLine(substring);
+
             Console.WriteLine(lastChar);
             Console.ReadKey();
         }

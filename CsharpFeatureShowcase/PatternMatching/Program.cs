@@ -10,29 +10,43 @@ namespace PatternMatching
     {
         static void Main(string[] args)
         {
-            object value = 5;
+            object value = new Dummy();
+            //object value = "foo";
+            //object value = "bar";
 
+            //Old
             {
-                if (value is int number)
+                var dummy = value as Dummy;
+                if (dummy != null)
                 {
-                    Console.WriteLine(number);
+                    Console.WriteLine(dummy);
                 }
             }
 
+            //New
+            {
+                if (value is Dummy dummy)
+                {
+                    Console.WriteLine(dummy);
+                }
+            }
+
+            //Can also be used in a switch, the order is important!
             switch (value)
             {
-                case int number:
-                    Console.WriteLine(number);
+                case Dummy dummy:
+                    Console.WriteLine(dummy);
                     break;
                 case string text:
                     Console.WriteLine(text);
                     break;
             }
 
+            //Extra conditions can be added, the order is important!
             switch (value)
             {
-                case int number:
-                    Console.WriteLine(number);
+                case Dummy dummy:
+                    Console.WriteLine(dummy);
                     break;
                 case string text when text == "foo":
                     Console.WriteLine("bar");
@@ -43,6 +57,14 @@ namespace PatternMatching
             }
 
             Console.ReadKey();
+        }
+    }
+
+    public class Dummy
+    {
+        public override string ToString()
+        {
+            return "Iam not null";
         }
     }
 }

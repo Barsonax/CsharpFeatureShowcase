@@ -17,10 +17,27 @@ namespace MoreExpressions
     public class ExpressionEverything
     {
         private string _name;
-        public string Name
+
+        public string NameOld
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException(nameof(value), "New name must not be null");
+                }
+                _name = value;
+            }
+        }
+
+        public string NameNew
         {
             get => _name;
-            set => _name = value ?? throw new ArgumentNullException(paramName: nameof(value), message: "New name must not be null");
+            set => _name = value ?? throw new ArgumentNullException(nameof(value), "New name must not be null");
         }
 
         public ExpressionEverything(string name) => _name = name;

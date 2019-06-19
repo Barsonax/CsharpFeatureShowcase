@@ -12,7 +12,7 @@ namespace InferredTupleElements
         {
             int count = 5;
             string label = "Colors used in the map";
-            var pair = (count, label); // element names are "count" and "label"
+            var pair = (count, label); // element names are "count" and "label" and the types are automatically inferred.
 
             Console.WriteLine(pair.count);
             Console.WriteLine(pair.label);
