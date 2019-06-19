@@ -44,7 +44,7 @@ namespace RefReadonly
             var mutableStruct = new MutableStruct();
             for (int i = 0; i < 100; i++)
             {
-                ref readonly var immutableReferenceToMutableStruct = ref ReturnImmutableReference(in mutableStruct);
+                ref readonly var immutableReferenceToMutableStruct = ref ReturnImmutableReference(in mutableStruct); //A copy will happen here reducing performance alot. Same will happen with readonly fields: https://codeblog.jonskeet.uk/2014/07/16/micro-optimization-the-surprising-inefficiency-of-readonly-fields/
                 immutableReferenceToMutableStruct.DoSomething();
                 //immutableReferenceToMutableStruct.Value2 = 5; //This won't compile due to ref readonly return even if Value is not readonly     
             }
@@ -56,7 +56,7 @@ namespace RefReadonly
             var immutableStruct = new ImmutableStruct();
             for (int i = 0; i < 100; i++)
             {
-                ref readonly var immutableReferenceToImmutableStruct = ref ReturnImmutableReference(in immutableStruct);
+                ref readonly var immutableReferenceToImmutableStruct = ref ReturnImmutableReference(in immutableStruct); //No copy will happen here since the struct is readonly
                 immutableReferenceToImmutableStruct.DoSomething();
                 //immutableReferenceToImmutableStruct.Value = 5; //This won't compile due to ref readonly return even if Value is not readonly    
             }
