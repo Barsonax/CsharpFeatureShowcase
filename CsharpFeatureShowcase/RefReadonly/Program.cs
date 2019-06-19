@@ -80,7 +80,7 @@ namespace RefReadonly
         public double Value8 { get; set; }
         public Vector4 SomeVector;
 
-        [MethodImpl(MethodImplOptions.NoInlining)]
+        [MethodImpl(MethodImplOptions.NoInlining)] //This is to defeat any optimizations the compiler could do if this was inlined
         public int DoSomething()
         {
             return 5;
@@ -99,7 +99,7 @@ namespace RefReadonly
         public double Value8 { get; }
         public readonly Vector4 SomeVector;
 
-        [MethodImpl(MethodImplOptions.NoInlining)]
+        [MethodImpl(MethodImplOptions.NoInlining)] //This is to defeat any optimizations the compiler could do if this was inlined
         public int DoSomething()
         {
             return 5;
