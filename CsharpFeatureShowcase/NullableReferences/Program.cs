@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
@@ -41,17 +42,17 @@ namespace NullableReferences
             //Array consists of non nullable elements but will be initialized with nulls.
             var array = new SomeClass[100];
 
-            var isNull = array[0] == null; //true
+            bool isNull = array[0] == null; //true
         }
 
         public static void Example4()
         {
             var dic = new Dictionary<int, SomeClass>();
-            dic.TryGetValue(3, out var someClass); //someClass will not be assigned and thus be null.
+            dic.TryGetValue(3, out SomeClass someClass); //someClass will not be assigned and thus be null.
             NonNullableParameter(someClass); //No warning even though we forgot to check the return of TryGetValue, might get fixed in a later version see https://github.com/dotnet/roslyn/blob/master/docs/features/nullable-reference-types.md#null-tests
 
             var customDic = new CustomDictionary<int, SomeClass?>();
-            if (customDic.TryGetValue(3, out var someClass1))
+            if (customDic.TryGetValue(3, out SomeClass someClass1))
             {
                 NonNullableParameter(someClass1);
             }
@@ -78,7 +79,7 @@ namespace NullableReferences
     {
         private Dictionary<TKey, TValue> _internalDictionary = new Dictionary<TKey, TValue>();
        
-        public bool TryGetValue(TKey key, [NotNullWhen(true)] out TValue value)
+        public bool TryGetValue(TKey key, out TValue value) //[NotNullWhen(true)] could be used to denote the out variable is not null if the method returns null, does not work atm yet.
         {
             return _internalDictionary.TryGetValue(key, out value);
         }
@@ -98,7 +99,7 @@ namespace NullableReferences
         /// <returns></returns>
         public T Search(Func<T, bool> predicate)
         {
-            foreach (var item in _internalList)
+            foreach (T item in _internalList)
             {
                 if (predicate(item))
                 {

@@ -23,7 +23,7 @@ namespace LocalFunctions
 
             void Example1LocalFuction()
             {
-                var foo2 = foo + 2;
+                int foo2 = foo + 2;
             }
         }
     }

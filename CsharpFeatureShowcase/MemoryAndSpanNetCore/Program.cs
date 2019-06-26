@@ -12,7 +12,7 @@ namespace MemoryAndSpan
         static void Main(string[] args)
         {
             var text = "daasasd";
-            var slice = text.AsSpan().Slice(0, 3);
+            ReadOnlySpan<char> slice = text.AsSpan().Slice(0, 3);
 
             BenchmarkRunner.Run<ReinterpretBinaryDataBenchmark>();
             //BenchmarkRunner.Run<ReinterpretTextBenchmark>();
