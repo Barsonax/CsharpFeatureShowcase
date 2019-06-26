@@ -24,7 +24,7 @@ namespace MemoryAndSpan
         [Benchmark(Baseline = true)]
         public void NormalWritetoFile()
         {
-            using (var fileStream = File.CreateText("textfile"))
+            using (StreamWriter fileStream = File.CreateText("textfile"))
             {
                 fileStream.Write(_text);
             }

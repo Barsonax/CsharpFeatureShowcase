@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace NullableReferences
 {
@@ -29,7 +25,7 @@ namespace NullableReferences
             array[0].Equals(null);
 
             var dic = new Dictionary<int, SomeClass>();
-            dic.TryGetValue(3, out var someClass);
+            dic.TryGetValue(3, out SomeClass someClass);
             NonNullableParameter(someClass);
         }
 

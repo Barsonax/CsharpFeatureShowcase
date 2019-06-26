@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InferredTupleElements
 {
@@ -12,7 +8,7 @@ namespace InferredTupleElements
         {
             var count = 5;
             var label = "Colors used in the map";
-            var pair = (count, label); // element names are "count" and "label"
+            (int count, string label) pair = (count, label); // element names are "count" and "label"
 
             Console.WriteLine(pair.count);
             Console.WriteLine(pair.label);

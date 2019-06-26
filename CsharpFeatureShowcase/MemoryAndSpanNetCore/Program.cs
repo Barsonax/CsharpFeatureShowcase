@@ -4,7 +4,6 @@ using BenchmarkDotNet.Horology;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Running;
 using System;
-using System.Runtime.InteropServices;
 
 namespace MemoryAndSpan
 {

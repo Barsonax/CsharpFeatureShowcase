@@ -73,9 +73,9 @@ namespace MemoryAndSpan
         [Benchmark]
         public void ReinterpretWritetoFile()
         {
-            var bytes = MemoryMarshal.AsBytes(_colorArray.AsSpan());
+            Span<byte> bytes = MemoryMarshal.AsBytes(_colorArray.AsSpan());
 
-            using (var fileStream = File.Create("datafile"))
+            using (FileStream fileStream = File.Create("datafile"))
             {
 #if NET472
                 fileStream.Write(bytes.ToArray(), 0, bytes.Length); //'.ToArray(), 0, bytes.Length' can be removed in netcore 2.1. We still need it here due to a missing API.
@@ -89,8 +89,8 @@ namespace MemoryAndSpan
         [Benchmark(Baseline = true)]
         public void NormalWritetoFile()
         {
-            var bytes = GetBytes(_colorArray);
-            using (var fileStream = File.Create("datafile"))
+            byte[] bytes = GetBytes(_colorArray);
+            using (FileStream fileStream = File.Create("datafile"))
             {
                 fileStream.Write(bytes, 0, bytes.Length);
             }
@@ -102,7 +102,7 @@ namespace MemoryAndSpan
             var bytes = new byte[array.Length * structSize];
             for (var i = 0; i < array.Length; i++)
             {
-                var byteIndex = i * structSize;
+                int byteIndex = i * structSize;
                 bytes[byteIndex] = array[i].Red;
                 bytes[byteIndex + 1] = array[i].Green;
                 bytes[byteIndex + 2] = array[i].Blue;

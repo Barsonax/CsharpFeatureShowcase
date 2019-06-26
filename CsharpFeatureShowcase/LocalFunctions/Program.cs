@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocalFunctions
 {
@@ -34,7 +31,7 @@ namespace LocalFunctions
 
             if (end <= start)
                 throw new ArgumentException($"{nameof(end)} must be greater than {nameof(start)}");
-            for (var c = start; c < end; c++)
+            for (char c = start; c < end; c++)
                 yield return c;
         }
 
@@ -58,7 +55,7 @@ namespace LocalFunctions
 
         private IEnumerable<char> alphabetSubsetImplementation(char start, char end)
         {
-            for (var c = start; c < end; c++)
+            for (char c = start; c < end; c++)
                 yield return c;
         }
 
@@ -82,7 +79,7 @@ namespace LocalFunctions
 
             IEnumerable<char> alphabetSubsetImplementation()
             {
-                for (var c = start; c < end; c++)
+                for (char c = start; c < end; c++)
                     yield return c;
             }
         }

@@ -44,7 +44,7 @@ namespace RefReadonly
             var mutableStruct = new MutableStruct();
             for (var i = 0; i < 100; i++)
             {
-                ref readonly var immutableReferenceToMutableStruct = ref ReturnImmutableReference(in mutableStruct);
+                ref readonly MutableStruct immutableReferenceToMutableStruct = ref ReturnImmutableReference(in mutableStruct);
                 immutableReferenceToMutableStruct.DoSomething();
                 //immutableReferenceToMutableStruct.Value2 = 5; //This won't compile due to ref readonly return even if Value is not readonly     
             }
@@ -56,7 +56,7 @@ namespace RefReadonly
             var immutableStruct = new ImmutableStruct();
             for (var i = 0; i < 100; i++)
             {
-                ref readonly var immutableReferenceToImmutableStruct = ref ReturnImmutableReference(in immutableStruct);
+                ref readonly ImmutableStruct immutableReferenceToImmutableStruct = ref ReturnImmutableReference(in immutableStruct);
                 immutableReferenceToImmutableStruct.DoSomething();
                 //immutableReferenceToImmutableStruct.Value = 5; //This won't compile due to ref readonly return even if Value is not readonly    
             }
