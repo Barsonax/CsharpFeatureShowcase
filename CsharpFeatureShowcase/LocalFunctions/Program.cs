@@ -39,9 +39,9 @@ namespace LocalFunctions
         public IEnumerable<char> AlphabetSubset(char start, char end)
         {
             if (start < 'a' || start > 'z')
-                throw new ArgumentOutOfRangeException(paramName: nameof(start), message: "start must be a letter");
+                throw new ArgumentOutOfRangeException(nameof(start), "start must be a letter");
             if (end < 'a' || end > 'z')
-                throw new ArgumentOutOfRangeException(paramName: nameof(end), message: "end must be a letter");
+                throw new ArgumentOutOfRangeException(nameof(end), "end must be a letter");
 
             if (end <= start)
                 throw new ArgumentException($"{nameof(end)} must be greater than {nameof(start)}");
@@ -58,9 +58,9 @@ namespace LocalFunctions
         public IEnumerable<char> AlphabetSubsetOld(char start, char end)
         {
             if (start < 'a' || start > 'z')
-                throw new ArgumentOutOfRangeException(paramName: nameof(start), message: "start must be a letter");
+                throw new ArgumentOutOfRangeException(nameof(start), "start must be a letter");
             if (end < 'a' || end > 'z')
-                throw new ArgumentOutOfRangeException(paramName: nameof(end), message: "end must be a letter");
+                throw new ArgumentOutOfRangeException(nameof(end), "end must be a letter");
 
             if (end <= start)
                 throw new ArgumentException($"{nameof(end)} must be greater than {nameof(start)}");
@@ -82,9 +82,9 @@ namespace LocalFunctions
         public IEnumerable<char> AlphabetSubsetNew(char start, char end)
         {
             if (start < 'a' || start > 'z')
-                throw new ArgumentOutOfRangeException(paramName: nameof(start), message: "start must be a letter");
+                throw new ArgumentOutOfRangeException(nameof(start), "start must be a letter");
             if (end < 'a' || end > 'z')
-                throw new ArgumentOutOfRangeException(paramName: nameof(end), message: "end must be a letter");
+                throw new ArgumentOutOfRangeException(nameof(end), "end must be a letter");
 
             if (end <= start)
                 throw new ArgumentException($"{nameof(end)} must be greater than {nameof(start)}");

@@ -148,7 +148,7 @@ namespace EnhancedGenericConstraints
             Type[] parameterTypes = invoke.GetParameters().Select(p => p.ParameterType).ToArray();
 
             _method = new DynamicMethod(name, invoke.ReturnType,
-                parameterTypes, restrictedSkipVisibility: true);
+                parameterTypes, true);
         }
 
         public ILGenerator GetILGenerator() => _method.GetILGenerator();
