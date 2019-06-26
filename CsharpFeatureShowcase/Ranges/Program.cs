@@ -10,8 +10,8 @@ namespace MemoryAndSpanNetCore
 
             ReadOnlySpan<char> someText = "1234567890";
 
-            Console.WriteLine(someText[3..].ToString());//Prints 4567890
             Console.WriteLine(someText[someRange].ToString()); //Prints 23456789
+            Console.WriteLine(someText[3..].ToString());//Prints 4567890
 
             char lastChar = someText[^1];
             Console.WriteLine(lastChar); //Prints 0
