@@ -9,16 +9,15 @@ namespace MemoryAndSpanNetCore
             Range someRange = 1..^1; //Skip the first and the last element of a collection
 
             ReadOnlySpan<char> someText = "1234567890";
-            ReadOnlySpan<char> substring = someText[someRange]; 
-            Console.WriteLine(substring.ToString()); //Prints 23456789
+
+            Console.WriteLine(someText[3..].ToString());//Prints 4567890
+            Console.WriteLine(someText[someRange].ToString()); //Prints 23456789
 
             char lastChar = someText[^1];
-
-            Console.WriteLine(lastChar);
+            Console.WriteLine(lastChar); //Prints 0
             Console.ReadKey();
 
-
-
+            //Example
             var words = new string[]
             {
                 // index from start    index from end
