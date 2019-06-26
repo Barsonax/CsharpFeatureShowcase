@@ -8,7 +8,7 @@ namespace RefLocal
         {
             var array = new[] { 1, 2, 3 };
             ref int referenceToValueInArray = ref GetReferenceToIndex(array, 1); //Just to demonstrate you can use ref returns but ref array[1] will work as well.
-            referenceToValueInArray = 6;
+            referenceToValueInArray = 6; // This changes the array to have the values { 1, 6, 3 }
             Console.WriteLine(referenceToValueInArray);
             Console.WriteLine(string.Join(", ", array));
 
