@@ -44,7 +44,7 @@ namespace RefReadonly
             var mutableStruct = new MutableStruct();
             for (var i = 0; i < 100; i++)
             {
-                ref readonly MutableStruct immutableReferenceToMutableStruct = ref ReturnImmutableReference(in mutableStruct);
+                ref readonly MutableStruct immutableReferenceToMutableStruct = ref ReturnImmutableReference(in mutableStruct); //A copy will happen here reducing performance alot. Same will happen with readonly fields: https://codeblog.jonskeet.uk/2014/07/16/micro-optimization-the-surprising-inefficiency-of-readonly-fields/
                 immutableReferenceToMutableStruct.DoSomething();
                 //immutableReferenceToMutableStruct.Value2 = 5; //This won't compile due to ref readonly return even if Value is not readonly     
             }
@@ -56,7 +56,7 @@ namespace RefReadonly
             var immutableStruct = new ImmutableStruct();
             for (var i = 0; i < 100; i++)
             {
-                ref readonly ImmutableStruct immutableReferenceToImmutableStruct = ref ReturnImmutableReference(in immutableStruct);
+                ref readonly ImmutableStruct immutableReferenceToImmutableStruct = ref ReturnImmutableReference(in immutableStruct); //No copy will happen here since the struct is readonly
                 immutableReferenceToImmutableStruct.DoSomething();
                 //immutableReferenceToImmutableStruct.Value = 5; //This won't compile due to ref readonly return even if Value is not readonly    
             }
@@ -80,7 +80,7 @@ namespace RefReadonly
         public double Value8 { get; set; }
         public Vector4 SomeVector;
 
-        [MethodImpl(MethodImplOptions.NoInlining)]
+        [MethodImpl(MethodImplOptions.NoInlining)] //This is to defeat any optimizations the compiler could do if this was inlined
         public int DoSomething()
         {
             return 5;
@@ -99,7 +99,7 @@ namespace RefReadonly
         public double Value8 { get; }
         public readonly Vector4 SomeVector;
 
-        [MethodImpl(MethodImplOptions.NoInlining)]
+        [MethodImpl(MethodImplOptions.NoInlining)] //This is to defeat any optimizations the compiler could do if this was inlined
         public int DoSomething()
         {
             return 5;

@@ -8,7 +8,12 @@ namespace DefaultLiteralExpressions
         {
         }
 
-        static void DefaultLiteralExpression(Func<string, bool> whereClause = default)
+        static void DefaultLiteralExpressionOld(Func<string, bool> whereClause = default(Func<string, bool>))
+        {
+
+        }
+
+        static void DefaultLiteralExpressionNew(Func<string, bool> whereClause = default)
         {
 
         }
