@@ -9,7 +9,7 @@ namespace MemoryAndSpanNetCore
         {
             Range someRange = 1..^1;
 
-            string someText = "1234567890";
+            var someText = "1234567890";
             string substring = someText[someRange];
             char lastChar = someText[^1];
             Console.WriteLine(substring);

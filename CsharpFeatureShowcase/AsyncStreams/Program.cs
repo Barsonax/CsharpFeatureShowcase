@@ -10,24 +10,26 @@ namespace AsyncStreams
     {
         static async Task Main(string[] args)
         {
-            var foo = new AsyncIntegersOld();
+            //OLD
+            // var foo = new AsyncIntegersOld();
 
-           foreach (var integer in foo)
+            //foreach (var integer in foo)
+            // {
+            //     var result = await integer;
+            //     Console.WriteLine(result);
+            //     Console.WriteLine($"Current thread: {Thread.CurrentThread.ManagedThreadId}");
+            // }
+            // Console.WriteLine($"Finished, current thread: {Thread.CurrentThread.ManagedThreadId}");
+
+            //NEW
+            var foo = new AsyncIntegers();
+
+            await foreach (int integer in foo)
             {
-                var result = await integer;
-                Console.WriteLine(result);
+                Console.WriteLine(integer);
                 Console.WriteLine($"Current thread: {Thread.CurrentThread.ManagedThreadId}");
             }
-            Console.WriteLine($"Current thread: {Thread.CurrentThread.ManagedThreadId}");
-
-            //var foo = new AsyncIntegers();
-
-            //await foreach(var integer in foo)
-            //{
-            //    Console.WriteLine(integer);
-            //    Console.WriteLine($"Current thread: {Thread.CurrentThread.ManagedThreadId}");
-            //}
-            //Console.WriteLine($"Current thread: {Thread.CurrentThread.ManagedThreadId}");
+            Console.WriteLine($"Finished, current thread: {Thread.CurrentThread.ManagedThreadId}");
 
             Console.ReadKey();
         }
@@ -37,7 +39,7 @@ namespace AsyncStreams
     {
         public IEnumerator<Task<int>> GetEnumerator()
         {
-            for (int i = 0; i < 100; i++)
+            for (var i = 0; i < 100; i++)
             {
                 yield return Task.Run(() => i);
             }
@@ -53,7 +55,7 @@ namespace AsyncStreams
     {
         public async IAsyncEnumerator<int> GetAsyncEnumerator(CancellationToken cancellationToken = default)
         {
-            for (int i = 0; i < 100; i++)
+            for (var i = 0; i < 100; i++)
             {
                 yield return await Task.Run(() => i);
             }

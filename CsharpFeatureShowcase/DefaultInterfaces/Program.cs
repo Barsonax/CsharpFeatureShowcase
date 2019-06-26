@@ -39,6 +39,8 @@ namespace DefaultInterfaces
 
     public class Audi : IVehicle
     {
+        public int Number => throw new NotImplementedException();
+
         public void DisplayMessage()
         {
             Console.WriteLine("I am AUDI!!!");

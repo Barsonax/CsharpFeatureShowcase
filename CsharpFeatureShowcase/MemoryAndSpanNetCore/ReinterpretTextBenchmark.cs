@@ -14,7 +14,7 @@ namespace MemoryAndSpan
         {
             var random = new Random(4);
             var text = new char[100000];
-            for (int i = 0; i < text.Length; i++)
+            for (var i = 0; i < text.Length; i++)
             {
                 text[i] = 'h';
             }

@@ -34,7 +34,7 @@ namespace EnhancedGenericConstraints
     {
         public static unsafe byte[] ComputeHash<T>(T data) where T : unmanaged
         {
-            byte* bytes = (byte*)(&data);
+            var bytes = (byte*)(&data);
             using (SHA1 sha1 = SHA1.Create())
             {
                 int size = sizeof(T);

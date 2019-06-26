@@ -10,8 +10,8 @@ namespace InferredTupleElements
     {
         static void Main(string[] args)
         {
-            int count = 5;
-            string label = "Colors used in the map";
+            var count = 5;
+            var label = "Colors used in the map";
             var pair = (count, label); // element names are "count" and "label"
 
             Console.WriteLine(pair.count);

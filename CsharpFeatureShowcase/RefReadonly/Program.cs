@@ -42,7 +42,7 @@ namespace RefReadonly
         public void MutableTest()
         {
             var mutableStruct = new MutableStruct();
-            for (int i = 0; i < 100; i++)
+            for (var i = 0; i < 100; i++)
             {
                 ref readonly var immutableReferenceToMutableStruct = ref ReturnImmutableReference(in mutableStruct);
                 immutableReferenceToMutableStruct.DoSomething();
@@ -54,7 +54,7 @@ namespace RefReadonly
         public void ImmutableTest()
         {
             var immutableStruct = new ImmutableStruct();
-            for (int i = 0; i < 100; i++)
+            for (var i = 0; i < 100; i++)
             {
                 ref readonly var immutableReferenceToImmutableStruct = ref ReturnImmutableReference(in immutableStruct);
                 immutableReferenceToImmutableStruct.DoSomething();

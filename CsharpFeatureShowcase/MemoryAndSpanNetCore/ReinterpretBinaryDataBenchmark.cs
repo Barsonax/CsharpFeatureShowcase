@@ -60,7 +60,7 @@ namespace MemoryAndSpan
         {
             _colorArray = new RGBA[N];
             var random = new Random(4);
-            for (int i = 0; i < _colorArray.Length; i++)
+            for (var i = 0; i < _colorArray.Length; i++)
             {
                 var r = (byte)random.Next(0, 255);
                 var g = (byte)random.Next(0, 255);
@@ -100,7 +100,7 @@ namespace MemoryAndSpan
         {
             var structSize = 4;
             var bytes = new byte[array.Length * structSize];
-            for (int i = 0; i < array.Length; i++)
+            for (var i = 0; i < array.Length; i++)
             {
                 var byteIndex = i * structSize;
                 bytes[byteIndex] = array[i].Red;
