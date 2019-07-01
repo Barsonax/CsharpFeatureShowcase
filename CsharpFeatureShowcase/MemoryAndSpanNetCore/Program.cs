@@ -4,6 +4,7 @@ using BenchmarkDotNet.Horology;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Running;
 using System;
+using System.Runtime.InteropServices;
 
 namespace MemoryAndSpan
 {
@@ -62,6 +63,12 @@ namespace MemoryAndSpan
             //BenchmarkRunner.Run<ReinterpretBinaryDataBenchmark>();
             Console.ReadKey();
         }
+    }
+
+    // You can use a Span in a field provided the field is part of a ref struct.
+    public ref struct CustomStructWithSpan
+    {
+        public Span<byte> SpanField;
     }
 
     public class CustomJob : ManualConfig
